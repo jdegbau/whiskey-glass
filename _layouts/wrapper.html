@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <link rel="stylesheet" href="/assets/css/style.css">
     {% if page.SEO_title %}
     <title>{{ page.SEO_title }}</title>
     {% else %}
@@ -34,13 +35,6 @@
     <meta name="twitter:label2" content="Reading time" />
     <meta name="twitter:data2" content="{{ page.content | number_of_words | divided_by:180 }} min read" />
     {% endif %}
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NM6JBXF');</script>
-    <!-- End Google Tag Manager -->
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -56,26 +50,15 @@
           {{ content }}
         </section>
       </main>
-      <div id="sidebar" class="column">{% include sidebar.html %}</div> <!-- end #sidebar -->
     </div>
     <footer class="footer">
       <div class="columns is-reversed-mobile">
         <div class="column">
           <p>&copy; {{ site.time | date: '%Y' }} <a href="/">Joshua DeGrasse-Baumann</a></p>
-          <a href="https://twitter.com/jdegbau" aria-label="Follow me on Twitter""><i class="fa-brands fa-twitter fa-2x m-1"></i></a>
-          <a href="https://www.linkedin.com/in/jdegbau/" aria-label="Follow me on LinkedIn"><i class="fa-brands fa-linkedin fa-2x m-1"></i></a>
-          <a href="https://github.com/jdegbau" aria-label="Follow me on GitHub"><i class="fa-brands fa-github fa-2x m-1"></i></a>
-          <a href="https://www.instagram.com/jdegbau/" aria-label="Follow me on Instagram"><i class="fa-brands fa-instagram fa-2x m-1"></i></a>
-          <a href="https://www.threads.net/@jdegbau" aria-label="Follow me on Threads"><i class="fa-brands fa-threads fa-2x m-1"></i></a>
-        </div>
-        <div class="column">
-          <p class="subtitle is-4">Join My Newsletter!</p>
-          {% include newsletter.html %}
         </div>
       </div>
     </footer>    
     <script src="https://kit.fontawesome.com/13ccd4d90b.js" crossorigin="anonymous" defer></script>
     <script src="/assets/js/mobile-nav.js" defer></script>
-    <script src="/assets/js/copy-code-block.js" defer></script>
     <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw" defer></script>
 </html>
