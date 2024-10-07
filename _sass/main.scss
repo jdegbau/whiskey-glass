@@ -1,0 +1,402 @@
+@charset "utf-8";
+
+// Import Google Fonts
+@import url('/assets/fonts/JetBrains_Mono.woff2');
+
+@font-face {
+  font-family: JetBrains Mono;
+  src: url('/assets/fonts/JetBrains_Mono.woff2') format('woff2 supports variations'),
+       url('/assets/fonts/JetBrains_Mono.woff2') format('woff2-variations');
+  font-weight: 100 200 300 400 500 700 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+// Brand colors
+$orange: #ff4d00;
+$blue: #152A49;
+$black: #141414;
+$white: #f1f1f1;
+$family-sans-serif: "Nunito", sans-serif;
+$family-monospace: "JetBrains Mono", monospace;
+
+@import "./utilities/initial-variables.sass";
+
+// Update Bulma's derived variables
+@import "./utilities/functions.sass";
+
+$primary: $orange;
+$scheme-main: $white;
+$scheme-main-bis: $white-bis;
+$scheme-main-ter: $white-ter;
+$scheme-invert: $black;
+$scheme-invert-bis: $black-bis;
+$scheme-invert-ter: $black-ter;
+
+$text: $black;
+$text-invert: findColorInvert($text);
+$text-light: findDarkColor($grey);
+
+$border-light: $black-ter;
+
+$link: $primary;
+$link-hover: $blue;
+main a {
+  font-weight: bold;
+}
+main a:hover {
+  text-decoration: underline;
+}
+$navbar-item-hover-color: $white;
+$navbar-item-active-color: $primary;
+$navbar-item-hover-background-color: $blue;
+
+$card-background-color: $scheme-main-ter;
+
+@import "./utilities/derived-variables.sass";
+
+// Import only what you need from Bulma
+@import "./utilities/animations.sass";
+@import "./utilities/controls.sass";
+@import "./utilities/extends.sass";
+@import "./utilities/mixins.sass";
+@import "./base/_all.sass";
+@import "./components/_all.sass";
+@import "./elements/_all.sass";
+@import "./form/_all.sass";
+@import "./grid/_all.sass";
+@import "./helpers/_all.sass";
+@import "./layout/_all.sass";
+
+// Sidebar
+#sidebar {
+  text-align: center;
+}
+
+#sidebar-content {
+  position: sticky;
+  top: 95px;
+}
+
+#profile-photo {
+  clip-path: polygon(70% 0, 100% 50%, 70% 100%, 0% 100%, 20% 50%, 0% 0%);
+  transition: clip-path 1s
+}
+
+#profile-photo:hover {
+  clip-path: polygon(100% 0%, 80% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+
+}
+
+// Blog Card Overrides
+
+#blog-cards .card {
+  display:flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#blog-cards .card-footer {
+  margin-top: auto;
+}
+
+// Skip Nav Link
+
+.skip-nav-link {
+  color: #0f0f0f;
+  background: #f0f0f0;
+  position: absolute;
+  transform: translateY(-250%);
+  border-radius: 0 0 .25rem .25rem;
+  z-index: 31;
+  padding: .5rem;
+  left: .5rem;
+  transition: transform .5s ease-in;
+}
+
+.skip-nav-link:focus {
+  transform: translateY(-130%);
+}
+
+// Reading Progress Bar
+
+#progress-bar {
+  background-image: linear-gradient(to right, $blue 0%, $orange 33.3%);
+  width: 0;
+  height: 5px;
+  position: fixed;
+  top: 90px;
+  left: 0;
+  z-index: 2;
+}
+
+@media (max-width: 1023px) {
+  #progress-bar {
+    top: 58px;
+  }
+}
+
+/*----------
+Search
+----------*/
+
+div#search {
+  position: relative;
+}
+
+#search-container {
+  width: 75%;
+  margin: 0 auto;
+}
+
+#results-container {
+  position: absolute;
+  width: 100%;
+}
+
+@media (max-width: 1023px) {
+  #results-container {
+    position: initial;
+  }
+}
+
+// Navigation
+
+.navbar-brand {
+  font-size: 1.75em;
+  font-family: $family-monospace;
+}
+
+span#logo-cursor::after {
+  height: 1.75rem;
+  width: 2px;
+  background: $black;
+  display: inline-block;
+  content: "";
+  margin: -4px;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
+span#logo-cursor {
+  opacity: 0;
+  animation: blink 1s linear infinite alternate;
+  display: inline-block;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+span#logo-function {
+  color: $blue;
+}
+span#logo-argument {
+  color: $orange;
+}
+
+span.navbar-brand {
+  color: $black;
+}
+
+// Skills
+
+#skills img {
+  margin-inline: .5rem;
+}
+
+/*----------
+Copy Code Block
+----------*/
+
+div.highlight pre {
+  position: relative;
+}
+
+.highlight button {
+    opacity: 0
+}
+
+.highlight:hover button {
+    opacity: 1
+}
+
+.highlight>button:active, .highlight button:focus {
+    opacity: 1
+}
+
+.highlight button {
+    opacity: 0
+}
+
+.highlight:hover button {
+    opacity: 1
+}
+
+.highlight button:active, .highlight button:focus {
+    opacity: 1
+}
+
+.highlight button.copy {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease-in-out;
+}
+
+// Code Highlighter
+
+div.highlight { text-align: left!important; margin: 0!important }
+div.highlight pre { white-space: pre-wrap }
+pre.highlight { margin-bottom: 16px; }
+.highlight { background-color: #222831; color: #dbdbdb; font-family: $family-monospace; }
+.highlight .c { color: #75715e } /* Comment */
+.highlight .err { color: #F44336; } /* Error */
+.highlight .k { color: #FD7014 } /* Keyword */
+.highlight .l { color: #00B5D8 } /* Literal */
+.highlight .n { color: #dbdbdb } /* Name */
+.highlight .o { color: #F9A826 } /* Operator */
+.highlight .p { color: #dbdbdb } /* Punctuation */
+.highlight .cm { color: #75715e } /* Comment.Multiline */
+.highlight .cp { color: #75715e } /* Comment.Preproc */
+.highlight .c1 { color: #75715e } /* Comment.Single */
+.highlight .cs { color: #75715e } /* Comment.Special */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .kc { color: #FD7014 } /* Keyword.Constant */
+.highlight .kd { color: #FD7014 } /* Keyword.Declaration */
+.highlight .kn { color: #F9A826 } /* Keyword.Namespace */
+.highlight .kp { color: #FD7014 } /* Keyword.Pseudo */
+.highlight .kr { color: #FD7014 } /* Keyword.Reserved */
+.highlight .kt { color: #FD7014 } /* Keyword.Type */
+.highlight .ld { color: #E6DB74 } /* Literal.Date */
+.highlight .m { color: #00B5D8 } /* Literal.Number */
+.highlight .s { color: #E6DB74 } /* Literal.String */
+.highlight .na { color: #A6E22E } /* Name.attribute */
+.highlight .nb { color: #dbdbdb } /* Name.Builtin */
+.highlight .nc { color: #A6E22E } /* Name.Class */
+.highlight .no { color: #FD7014 } /* Name.Constant */
+.highlight .nd { color: #A6E22E } /* Name.Decorator */
+.highlight .ni { color: #dbdbdb } /* Name.Entity */
+.highlight .ne { color: #A6E22E } /* Name.Exception */
+.highlight .nf { color: #A6E22E } /* Name.Function */
+.highlight .nl { color: #dbdbdb } /* Name.Label */
+.highlight .nn { color: #dbdbdb } /* Name.Namespace */
+.highlight .nx { color: #A6E22E } /* Name.Other */
+.highlight .py { color: #dbdbdb } /* Name.Property */
+.highlight .nt { color: #F9A826 } /* Name.Tag */
+.highlight .nv { color: #dbdbdb } /* Name.Variable */
+.highlight .ow { color: #F9A826 } /* Operator.Word */
+.highlight .w { color: #dbdbdb } /* Text.Whitespace */
+.highlight .mf { color: #00B5D8 } /* Literal.Number.Float */
+.highlight .mh { color: #00B5D8 } /* Literal.Number.Hex */
+.highlight .mi { color: #00B5D8 } /* Literal.Number.Integer */
+.highlight .mo { color: #00B5D8 } /* Literal.Number.Oct */
+.highlight .sb { color: #E6DB74 } /* Literal.String.Backtick */
+.highlight .sc { color: #E6DB74 } /* Literal.String.Char */
+.highlight .sd { color: #E6DB74 } /* Literal.String.Doc */
+.highlight .s2 { color: #E6DB74 } /* Literal.String.Double */
+.highlight .se { color: #E6DB74 } /* Literal.String.Escape */
+.highlight .sh { color: #E6DB74 } /* Literal.String.Heredoc */
+.highlight .si { color: #E6DB74 } /* Literal.String.Interpol */
+.highlight .sx { color: #E6DB74 } /* Literal.String.Other */
+.highlight .sr { color: #E6DB74 } /* Literal.String.Regex */
+.highlight .s1 { color: #E6DB74 } /* Literal.String.Single */
+.highlight .ss { color: #E6DB74 } /* Literal.String.Symbol */
+.highlight .bp { color: #75715e } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #FD7014 } /* Name.Variable.Class */
+.highlight .vg { color: #FD7014 } /* Name.Variable.Global */
+.highlight .vi { color: #FD7014 } /* Name.Variable.Instance */
+.highlight .il { color: #00B5D8 } /* Literal.Number.Integer.Long */
+
+@media(max-width: $tablet) {
+  .columns.is-reversed-mobile {
+    flex-direction: column-reverse;
+    display: flex;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .columns {
+      margin: initial!important;
+  }
+}
+
+// Table of Contents
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* TOC container */
+.toc {
+  padding: 1em;
+  background-color: #f5f5f5;
+  box-shadow: 0px 0px 10px #ddd;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+/* TOC headings */
+.toc p {
+  margin-top: 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #ff4d00;
+  text-transform: uppercase;
+}
+
+/* TOC links */
+.toc a {
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* TOC links hover */
+.toc a:hover {
+  color: #ff4d00;
+}
+
+/* TOC list */
+.toc ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* TOC list items */
+.toc li {
+  margin-bottom: 0.5em;
+}
+
+/* TOC list item links */
+.toc li a {
+  font-size: 0.9em;
+  padding-left: 1em;
+  position: relative;
+}
+
+/* TOC list item links hover */
+.toc li a:hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 100%;
+  background-color: #ff4d00;
+}
+
+// Headings
+
+.title, .is-1, .is-2, .is-3, .is-4, h1, h2, h3, h4 {
+  font-family: "JetBrains Mono";
+}
