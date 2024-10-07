@@ -1,6 +1,6 @@
 ---
 layout: default
-title: The Whiskey Glass
+title: The Whiskey Glass | Whiskey Lovers Only
 ---
 
 <!-- Full-Width Hero Video Section -->
