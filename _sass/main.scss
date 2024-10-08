@@ -1,31 +1,41 @@
 @charset "utf-8";
 
 // Import fonts
-@import url('/assets/fonts/JetBrains_Mono.woff2');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Fira+Mono:wght@400;500&display=swap');
 
 // Font Faces
 @font-face {
-  font-family: JetBrains Mono;
-  src: url('/assets/fonts/JetBrains_Mono.woff2') format('woff2 supports variations'),
-       url('/assets/fonts/JetBrains_Mono.woff2') format('woff2-variations');
-  font-weight: 100 200 300 400 500 700 800;
+  font-family: 'Fira Mono';
+  src: url('/assets/fonts/Fira_Mono.woff2') format('woff2 supports variations'),
+       url('/assets/fonts/Fira_Mono.woff2') format('woff2-variations');
+  font-weight: 400 500;
   font-display: swap;
   font-style: normal;
 }
 
-// Variables
-$orange: #ff4d00;
-$brown: #8B4513;
-$black: #141414;
-$white: #f1f1f1;
-$family-sans-serif: "Nunito", sans-serif;
-$family-monospace: "JetBrains Mono", monospace;
+@font-face {
+  font-family: 'Libre Baskerville';
+  src: url('https://fonts.gstatic.com/s/librebaskerville/v11/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qM.woff2') format('woff2');
+  font-display: swap;
+}
+
+// Variables - Updated for Whiskey Theme
+$orange: #D2691E; /* Whiskey amber tone */
+$brown: #8B4513; /* Classic whiskey tone */
+$dark-brown: #5B3826; /* Rich, dark brown */
+$cream: #f8f4e3; /* Soft cream background */
+$black: #141414; /* Standard black */
+$white: #ffffff; /* White */
+$gold: #c19a6b; /* Whiskey golden hue */
+
+$family-serif: "Libre Baskerville", serif;
+$family-monospace: "Fira Mono", monospace;
 
 $primary: $orange;
 $secondary: $brown;
-$text: $black;
-$background: $white;
-$card-bg: #f5f5f5;
+$text: $dark-brown;
+$background: $cream;
+$card-bg: #fbf7f2; /* Softer cream for cards */
 
 @import "./utilities/initial-variables.sass";
 
@@ -93,7 +103,7 @@ $card-bg: #f5f5f5;
   height: 100px;
   background: url('/assets/images/wave.svg') repeat-x;
   background-size: contain;
-  transform: scaleX(1.25);
+  transform: scale(1.25, .5);
   z-index: 9;
 }
 
