@@ -1,60 +1,92 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}" class="has-navbar-fixed-top">
+<html lang="{{ site.lang | default: 'en-US' }}" class="has-navbar-fixed-top">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="stylesheet" href="/assets/css/style.css">
-    {% if page.SEO_title %}
-    <title>{{ page.SEO_title }}</title>
-    {% else %}
-    <title>{{ page.title }} - {{ site.title }}</title>
-    {% endif %}
+    
+    <!-- Dynamic Page Title -->
+    <title>
+      {% if page.SEO_title %}
+        {{ page.SEO_title }}
+      {% else %}
+        {{ page.title }} - {{ site.title }}
+      {% endif %}
+    </title>
+
+    <!-- Meta Description for SEO -->
     {% if page.excerpt %}
-    <meta name="description" content="{{ page.excerpt }}">
+      <meta name="description" content="{{ page.excerpt }}">
     {% endif %}
-    {% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
+    {% if page.noindex %}
+      <meta name="robots" content="noindex">
+    {% endif %}
+    
+    <!-- RSS Feed and Favicon -->
     <link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
     <link rel="icon" href="/assets/img/favicon.gif" type="image/gif">
-    {% if page.title != "Page Not Found" %}<link rel="canonical" href={{ site.url }}{{ page.canonical | default: page.url }} />{% endif %}
-    {% if page.featured-image %}<link rel="preload" as="image" href="{{ page.featured-image }}">{% endif %}
-    <meta property="og:title" content="{{ page.title }}" />
-    {% if page.excerpt %}<meta property="og:description" content="{{ page.excerpt }}">{% endif %}
-    {% if page.featured-image %}<meta property="og:image" content="{{ page.featured-image }}" />{% else %}
-    <meta property="og:image" content="/assets/img/default-blog-hero.gif" />
+
+    <!-- Canonical Link -->
+    {% if page.title != "Page Not Found" %}
+      <link rel="canonical" href="{{ site.url }}{{ page.canonical | default: page.url }}">
     {% endif %}
+
+    <!-- Preload Featured Image if Exists -->
+    {% if page.featured-image %}
+      <link rel="preload" as="image" href="{{ page.featured-image }}">
+    {% endif %}
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="{{ page.title }}">
+    {% if page.excerpt %}
+      <meta property="og:description" content="{{ page.excerpt }}">
+    {% endif %}
+    <meta property="og:image" content="{% if page.featured-image %}{{ page.featured-image }}{% else %}/assets/img/default-blog-hero.gif{% endif %}">
     <meta property="og:url" content="{{ site.url }}{{ page.canonical | default: page.url }}">
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Joshua DeGrasse-Baumann's Blog">
-    <meta name="twitter:label1" content="Written by" />
-    <meta name="twitter:data1" content="{{ page.author }}" />
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.title }}">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="{{ page.author }}">
     {% if page.layout == "post" %}
-    <meta name="twitter:label2" content="Reading time" />
-    <meta name="twitter:data2" content="{{ page.content | number_of_words | divided_by:180 }} min read" />
+      <meta name="twitter:label2" content="Reading time">
+      <meta name="twitter:data2" content="{{ page.content | number_of_words | divided_by:180 }} min read">
     {% endif %}
   </head>
+
   <body>
     {% include nav.html %}
+
+    <!-- Progress Bar for Scroll Indicator -->
     <div id="progress-bar"></div>
-    <div class="columns section">
-      <main class="column is-three-quarters">
-        <section class="content container">
+
+    <!-- Main Content Section -->
+    <div class="section">
+      <main class="is-fullwidth">
+        <section class="content">
           <h1 class="title">{{ page.title }}</h1>
           {{ content }}
         </section>
       </main>
     </div>
+
+    <!-- Footer Section -->
     <footer class="footer">
       <div class="columns is-reversed-mobile">
-        <div class="column">
+        <div class="column is-full">
           <p>&copy; {{ site.time | date: '%Y' }} <a href="/">The Whiskey Glass</a></p>
         </div>
       </div>
-    </footer>    
+    </footer>
+
+    <!-- JavaScript Assets -->
     <script src="https://kit.fontawesome.com/13ccd4d90b.js" crossorigin="anonymous" defer></script>
     <script src="/assets/js/mobile-nav.js" defer></script>
     <script src="//instant.page/5.1.0" type="module" integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw" defer></script>
+  </body>
 </html>
