@@ -1,12 +1,25 @@
-<nav class="navbar">
+<nav class="navbar is-spaced">
     <div class="container">
-        <a href="{{ '/' | relative_url }}" class="brand">The Whiskey Glass</a>
-        <ul class="nav-links">
-            <li><a href="{{ '/' | relative_url }}">Home</a></li>
-            <li><a href="{{ '/whiskeys/' | relative_url }}">Whiskeys</a></li>
-            <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-            <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-        </ul>
+      <div class="navbar-brand">
+        <a href="{{ '/' | relative_url }}" class="navbar-item">
+          <img src="/path-to-your-logo.png" alt="The Whiskey Glass" width="112" height="28">
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+  
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a href="{{ '/' | relative_url }}" class="navbar-item">Home</a>
+          <a href="{{ '/whiskeys/' | relative_url }}" class="navbar-item">Whiskeys</a>
+          <a href="{{ '/blog/' | relative_url }}" class="navbar-item">Blog</a>
+          <a href="{{ '/contact/' | relative_url }}" class="navbar-item">Contact</a>
+        </div>
+      </div>
     </div>
-    <div class="nav-wave"></div>
-</nav>
+      <div class="nav-wave"></div>
+  </nav>
+  
