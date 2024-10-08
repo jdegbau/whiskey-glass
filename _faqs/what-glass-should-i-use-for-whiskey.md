@@ -1,5 +1,5 @@
 ---
-layout: faqs
+layout: page
 title: What glass should I use for whiskey?
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: faqs
+layout: page
 title: What does ‘small batch’ mean in whiskey?
 ---
 
