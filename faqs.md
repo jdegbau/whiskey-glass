@@ -1,11 +1,10 @@
 ---
 layout: page
-title: Whiskey FAQs
+title: Frequently Asked Questions About Whiskey
 ---
 
 <section class="section">
   <div class="container">
-    <h1 class="title">Frequently Asked Questions About Whiskey</h1>
     <div class="content">
       <ul class="faqs-list">
         {% for faq in site.faqs %}
