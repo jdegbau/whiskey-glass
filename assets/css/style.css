@@ -63,7 +63,7 @@ a {
     left: 0;
     right: 0;
     height: 100px;
-    background: url('/assets/images/wave-brown.svg') repeat-x;
+    background: url('/assets/images/wave.svg') repeat-x;
     background-size: contain;
     transform: scaleX(1.25);
     z-index: 9;
