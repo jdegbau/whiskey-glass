@@ -1,0 +1,20 @@
+---
+layout: page
+title: Frequently Asked Questions About Whiskey
+SEO_title: Frequently Asked Questions About Whiskey | The Whiskey Glass
+---
+
+<section class="section">
+  <div class="container">
+    <div class="faq-cards">
+      {% for faq in site.faqs %}
+      <div class="card faq-napkin">
+        <div class="card-content">
+          <a href="{{ faq.url }}"><h2 class="faq-title">{{ faq.title }}</h2></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+  
