@@ -3,6 +3,7 @@ layout: page
 title: Best Whiskey Glasses
 SEO_title: Best Whiskey Glasses for Every Occasion | The Whiskey Glass
 excerpt: Discover the best whiskey glasses that elevate your drinking experience. From Glencairn to tumbler glasses, we review the top whiskey glasses for connoisseurs.
+permalink: /best-whiskey-glasses/
 ---
 
 <!-- Hero Section -->
