@@ -2,4 +2,33 @@
 layout: wrapper
 ---
 
-{{ content }}
+<section class="section content-section">
+    <div class="container">
+  
+      <!-- Page Title -->
+      <header class="page-header">
+        <h1 class="title is-1 has-text-centered">{{ page.title }}</h1>
+        {% if page.subtitle %}
+          <p class="subtitle is-4 has-text-centered">{{ page.subtitle }}</p>
+        {% endif %}
+      </header>
+  
+      <!-- Main Content -->
+      <div class="content">
+        {{ content }}
+      </div>
+  
+      <!-- Optional Call to Action (can be used for conversion-driven pages) -->
+      {% if page.cta_text %}
+        <section class="section cta-section has-background-primary-light has-text-centered">
+          <div class="container">
+            <h2 class="title is-4">{{ page.cta_title }}</h2>
+            <p class="subtitle">{{ page.cta_text }}</p>
+            <a href="{{ page.cta_link }}" class="button is-primary is-medium">{{ page.cta_button_text }}</a>
+          </div>
+        </section>
+      {% endif %}
+  
+    </div>
+  </section>
+  

@@ -6,15 +6,20 @@ SEO_title: Frequently Asked Questions About Whiskey | The Whiskey Glass
 
 <section class="section">
   <div class="container">
+    <p>Got a question about whiskey? Odds are we've jotted down a quick answer to your question on one of the napkins below.</p>
     <div class="faq-cards">
       {% for faq in site.faqs %}
-      <div class="card faq-napkin">
-        <div class="card-content">
-          <a href="{{ faq.url }}"><h2 class="faq-title">{{ faq.title }}</h2></a>
+      <a href="{{ faq.url }}">
+        <div class="card faq-napkin">
+          <div class="card-content">
+            <h2 class="faq-title">{{ faq.title }}</h2>
+          </div>
+          <div class="faq-category">
+            {{ faq.category }}
+          </div>
         </div>
-      </div>
+      </a>
       {% endfor %}
     </div>
   </div>
 </section>
-  

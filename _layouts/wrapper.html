@@ -62,16 +62,10 @@
   <body>
     {% include nav.html %}
 
-    <!-- Progress Bar for Scroll Indicator -->
-    <div id="progress-bar"></div>
-
     <!-- Main Content Section -->
     <div class="section">
       <main class="is-fullwidth">
-        <section class="content">
-          <h1 class="title">{{ page.title }}</h1>
-          {{ content }}
-        </section>
+        {{ content }}
       </main>
     </div>
 
@@ -82,6 +76,9 @@
           <p>&copy; {{ site.time | date: '%Y' }} <a href="/">The Whiskey Glass</a></p>
         </div>
       </div>
+       
+       <!-- Progress Bar for Scroll Indicator -->
+       <div id="progress-bar"></div>
     </footer>
 
     <!-- JavaScript Assets -->

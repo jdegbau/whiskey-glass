@@ -260,18 +260,53 @@ footer {
   width: 100%;
   max-width: 300px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  transform: rotate(-2deg); /* Slight tilt */
   position: relative;
   overflow: hidden;
   background-size: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Optional: Slight variations in tilt for organic look */
-.faq-napkin:nth-child(2n) {
+/* Apply Different Rotations Based on nth-child */
+.faq-cards > :nth-child(1) .faq-napkin {
+  transform: rotate(-3deg);
+}
+
+.faq-cards > :nth-child(2) .faq-napkin {
+  transform: rotate(2deg);
+}
+
+.faq-cards > :nth-child(3) .faq-napkin {
+  transform: rotate(-1.5deg);
+}
+
+.faq-cards > :nth-child(4) .faq-napkin {
+  transform: rotate(3deg);
+}
+
+.faq-cards > :nth-child(5) .faq-napkin {
+  transform: rotate(-2.5deg);
+}
+
+.faq-cards > :nth-child(6) .faq-napkin {
   transform: rotate(1.5deg);
 }
-.faq-napkin:nth-child(3n) {
+
+.faq-cards > :nth-child(7) .faq-napkin {
+  transform: rotate(-3deg);
+}
+
+.faq-cards > :nth-child(8) .faq-napkin {
+  transform: rotate(2.5deg);
+}
+
+.faq-cards > :nth-child(9) .faq-napkin {
   transform: rotate(-1deg);
+}
+
+/* Hover Effect for FAQ Napkin */
+.faq-cards .faq-napkin:hover {
+  transform: scale(1.05) rotate(0); /* Straighten and slightly enlarge on hover */
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* FAQ Title on Napkin */
@@ -283,8 +318,16 @@ footer {
   padding: 0.5rem;
 }
 
-/* Hover Effect for FAQ Napkin */
-.faq-napkin:hover {
-  transform: scale(1.05) rotate(0); /* Straighten and slightly enlarge on hover */
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+/* Category Label Styling */
+.faq-category {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  color: #8B4513;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  z-index: 2;
+  font-family: "Permanent Marker", cursive;
 }

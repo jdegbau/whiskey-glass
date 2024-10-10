@@ -1,9 +1,11 @@
 ---
-layout: page
+layout: faqs
 title: What does ‘small batch’ mean in whiskey?
+category: General
+quick_answer: Small batch in whiskey refers to a production method where the whiskey is made in smaller, more controlled quantities compared to mass-produced whiskey. 
 ---
 
-"Small batch" in whiskey refers to a production method where the whiskey is made in smaller, more controlled quantities compared to mass-produced whiskey. While there’s no universal standard for what constitutes a "small batch," it's generally understood to involve using a limited number of barrels during production. These barrels are often selected for their unique characteristics, allowing distillers to craft a specific flavor profile. Small batch whiskeys are typically produced by boutique distilleries or specialized lines from larger producers.
+While there’s no universal standard for what constitutes a "small batch," it's generally understood to involve using a limited number of barrels during production. These barrels are often selected for their unique characteristics, allowing distillers to craft a specific flavor profile. Small batch whiskeys are typically produced by boutique distilleries or specialized lines from larger producers.
 
 One of the appeals of small batch whiskey is its exclusivity and the attention to detail that goes into its creation. Since the process involves fewer barrels, distillers have greater control over the blending process, ensuring that each batch maintains a high level of consistency and quality. The smaller production scale allows for more experimentation with different grains, aging techniques, and barrel types, resulting in distinct flavors that stand out from the broader market.
 
