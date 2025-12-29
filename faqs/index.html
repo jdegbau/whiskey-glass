@@ -1,25 +1,24 @@
 ---
-layout: page
 title: Frequently Asked Questions About Whiskey
 SEO_title: Frequently Asked Questions About Whiskey | The Whiskey Glass
 permalink: /faqs/
+layout: default
 ---
-
 <section class="section">
   <div class="container">
-    <p>Got a question about whiskey? Odds are we've jotted down a quick answer to your question on one of the napkins below.</p>
-    <div class="faq-cards">
+    <div class="columns is-multiline">
       {% for faq in site.faqs %}
-      <a href="{{ faq.url }}">
-        <div class="card faq-napkin">
+      <div class="column is-4">
+        <div class="card h-100" style="transition: transform 0.3s ease;">
           <div class="card-content">
-            <h2 class="faq-title">{{ faq.title }}</h2>
-          </div>
-          <div class="faq-category">
-            {{ faq.category }}
+            <h3 class="title is-5"><a href="{{ faq.url }}" class="has-text-dark">{{ faq.question }}</a></h3>
+            <p class="is-size-6 has-text-grey-darker mb-4">
+              {{ faq.quick_answer }}
+            </p>
+            <a href="{{ faq.url }}" class="button is-small is-gold is-outlined">Read Full Answer</a>
           </div>
         </div>
-      </a>
+      </div>
       {% endfor %}
     </div>
   </div>

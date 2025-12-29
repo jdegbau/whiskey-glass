@@ -1,6 +1,6 @@
 ---
 layout: faqs
-title: What is the difference between whisky and whiskey?
+question: What is the difference between whisky and whiskey?
 category: General
 quick_answer: The difference between "whiskey" and "whisky" primarily comes down to geographic spelling conventions. In the United States and Ireland, the spirit is typically spelled with an "e" as "whiskey." Meanwhile, in Scotland, Canada, and Japan, it’s spelled without the "e," as "whisky."
 ---

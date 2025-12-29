@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} | Whiskey.Glass</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #d4af37; --charcoal: #1a1a1a; }
+        body { font-family: 'Inter', sans-serif; background-color: #faf9f6; }
+        h1, h2, .title { font-family: 'Playfair Display', serif; }
+        .is-gold { background-color: var(--gold); color: white; }
+        .has-text-gold { color: var(--gold) !important; }
+        .navbar { border-bottom: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <nav class="navbar is-white">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item has-text-weight-bold is-size-4" href="/">WHISKEY.GLASS</a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a href="/reviews/" class="navbar-item">Reviews</a>
+                    <a href="/articles/" class="navbar-item">Articles</a>
+                    <a href="/cocktails/" class="navbar-item">Cocktails</a>
+                    <a href="/faqs/" class="navbar-item">FAQ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {{ content }}
+
+    <footer class="footer mt-6">
+        <div class="content has-text-centered">
+            <p><strong>Whiskey.Glass</strong> &copy; 2025. Please drink responsibly.</p>
+        </div>
+    </footer>
+</body>
+</html>

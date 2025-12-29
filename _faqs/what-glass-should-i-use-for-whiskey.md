@@ -1,6 +1,6 @@
 ---
 layout: faqs
-title: What glass should I use for whiskey?
+question: What glass should I use for whiskey?
 category: Glassware
 quick_answer: When it comes to whiskey tasting, the choice of glass can significantly enhance the experience by helping you fully appreciate the aromas, flavors, and textures of the spirit. 
 ---

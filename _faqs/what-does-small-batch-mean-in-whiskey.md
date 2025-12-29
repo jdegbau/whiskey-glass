@@ -1,6 +1,6 @@
 ---
 layout: faqs
-title: What does ‘small batch’ mean in whiskey?
+question: What does ‘small batch’ mean in whiskey?
 category: General
 quick_answer: Small batch in whiskey refers to a production method where the whiskey is made in smaller, more controlled quantities compared to mass-produced whiskey. 
 ---

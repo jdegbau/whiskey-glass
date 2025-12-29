@@ -1,6 +1,6 @@
 ---
 layout: faqs
-title: Can whiskey glasses be used for other spirits?
+question: Can whiskey glasses be used for other spirits?
 category: Glassware
 quick_answer: Yes, whiskey glasses can be used for other spirits, though the experience might differ based on the type of drink.
 ---

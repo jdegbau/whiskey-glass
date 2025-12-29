@@ -1,6 +1,6 @@
 ---
 layout: faqs
-title: What is a whiskey mash bill?
+question: What is a whiskey mash bill?
 category: General
 quick_answer: A whiskey mash bill refers to the specific recipe of grains used in the production process of whiskey. It typically consists of a combination of grains such as corn, rye, barley, and wheat, each contributing unique characteristics to the final product. 
 ---

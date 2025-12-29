@@ -1,6 +1,6 @@
 ---
 layout: faqs
-title: Do whiskey glasses affect flavor?
+question: Do whiskey glasses affect flavor?
 category: Glassware
 quick_answer: Yes, the shape and design of a whiskey glass can influence the flavor and aroma of your whiskey.
 ---

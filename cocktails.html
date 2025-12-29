@@ -1,0 +1,54 @@
+---
+layout: default
+title: Cocktail Recipes
+permalink: /cocktails/
+---
+<section class="hero is-light is-small" style="border-bottom: 1px solid #ddd;">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1">The Apothecary</h1>
+      <p class="subtitle">Curated recipes for the home bartender.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      {% for drink in site.cocktails %}
+      <div class="column is-6">
+        <a href="{{ drink.url }}">
+          <div class="box p-0" style="overflow: hidden; transition: transform 0.3s ease;">
+            <div class="columns is-gapless">
+              <div class="column is-5">
+                <figure class="image is-square">
+                  <img src="{{ drink.image }}" alt="{{ drink.title }}" style="object-fit: cover;">
+                </figure>
+              </div>
+              <div class="column is-7 p-5">
+                <p class="heading mb-1">{{ drink.base_spirit }}</p>
+                <h3 class="title is-4 mb-2">{{ drink.title }}</h3>
+                <p class="is-size-6 has-text-grey mb-4">
+                  {{ drink.content | strip_html | truncatewords: 15 }}
+                </p>
+                <div class="level is-mobile">
+                  <div class="level-left">
+                    <span class="tag is-gold is-light">{{ drink.difficulty }}</span>
+                  </div>
+                  <div class="level-right">
+                    <span class="is-size-7 has-text-grey-light">{{ drink.prep_time }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .box:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+</style>

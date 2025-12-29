@@ -1,41 +1,106 @@
+# -------------------------------------------------------------------
+# Site Settings
+# -------------------------------------------------------------------
 url: "https://whiskey.glass"
-baseurl: "/"
-title: "The Whiskey Glass"
-highlighter: rouge
+baseurl: ""                 # Changed to empty string to avoid double slashes //
+title: "Whiskey.Glass"
+description: "A refined guide to whiskey reviews, cocktail recipes, and spirit education."
+author: "Joshua DeGrasse-Baumann"
+email: "contact@whiskey.glass"
+
+# -------------------------------------------------------------------
+# Build Settings
+# -------------------------------------------------------------------
 markdown: kramdown
-paginate: 9
-paginate_path: "/blog/:num/"
+highlighter: rouge
 sass:
   style: compressed
-  
+  sass_dir: _sass           # Explicitly tell Jekyll where to look for your SCSS
+
+# -------------------------------------------------------------------
+# Collections
+# -------------------------------------------------------------------
+collections:
+  reviews:
+    output: true
+    permalink: /reviews/:title/
+  articles:
+    output: true
+    permalink: /articles/:title/
+  cocktails:
+    output: true
+    permalink: /cocktails/:title/
+  faqs:
+    output: true
+    permalink: /faq/:title/   # Using singular /faq/ is cleaner for single-question pages
+
+# -------------------------------------------------------------------
+# Pagination
+# -------------------------------------------------------------------
+# Note: jekyll-paginate only works on the standard "posts" collection. 
+# For your hubs (Reviews/Cocktails), we'll handle display via Liquid loops.
+paginate: 9
+paginate_path: "/articles/page:num/"
+
+# -------------------------------------------------------------------
 # Plugins
+# -------------------------------------------------------------------
 plugins:
   - jekyll-redirect-from
   - jekyll-paginate
+  - jekyll-seo-tag          # Added for automatic Schema and Meta tags
+  - jekyll-sitemap          # Added for search engine indexing
 
-whitelist:
-  - jekyll-redirect-from
-
-
-collections:
-  faqs:
-    output: true
-    permalink: /faqs/:title/
-
-
+# -------------------------------------------------------------------
 # Defaults
+# -------------------------------------------------------------------
 defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-      type: "posts"
-    values:
-      author: Joshua DeGrasse-Baumann
-      layout: post
-      permalink: /blog/:slug/
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
+  # General Pages
+  - scope:
+      path: ""
       type: "pages"
     values:
+      layout: "default"
       include_in_sitemap: true
+
+  # Articles (Standard Blog)
+  - scope:
+      path: ""
+      type: "articles"
+    values:
+      layout: "article"
+      author: "Joshua DeGrasse-Baumann"
+
+  # Whiskey Reviews
+  - scope:
+      path: ""
+      type: "reviews"
+    values:
+      layout: "review"
+      author: "Joshua DeGrasse-Baumann"
+
+  # Cocktail Recipes
+  - scope:
+      path: ""
+      type: "cocktails"
+    values:
+      layout: "cocktail"
+
+  # FAQ Pages
+  - scope:
+      path: ""
+      type: "faqs"
+    values:
+      layout: "faq-single"
+
+# -------------------------------------------------------------------
+# Exclusions
+# -------------------------------------------------------------------
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - .sass-cache
+  - .jekyll-cache

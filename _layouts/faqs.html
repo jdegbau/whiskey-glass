@@ -1,86 +1,58 @@
 ---
-layout: wrapper
+layout: default
 ---
-
 <section class="section">
-  <div class="container">
-
-    {% if page.quick_answer %}
-    <section class="section quick-answer">
-        <div class="card has-background-primary-light">
-          <div class="card-content">
-            <h1 class="title is-2">{{ page.title }}</h1>
-            <p class="is-size-5">{{ page.quick_answer }}</p>
-          </div>
-        </div>
-      </section>
-      {% endif %}
-
-    <div class="content">
-      {{ content }}
-    </div>
-
-    <!-- Category Tag -->
-    <div class="faq-category-tag">
-      <span class="tag is-warning">{{ page.category }}</span>
-    </div>
-
-    <section class="section related-faqs">
-        <h2 class="title is-4">Related {{ page.category }} FAQs</h2>
-        <div class="faq-cards">
-          {% assign filtered_faqs = site.faqs | where: "category", page.category %}
-          {% for related_faq in filtered_faqs limit: 6 %}
-            {% if related_faq.url != page.url %}
-              <a href="{{ related_faq.url }}">
-                <div class="card faq-napkin">
-                  <div class="card-content">
-                    <h3 class="faq-title">{{ related_faq.title }}</h3>
-                  </div>
-                  <div class="faq-category">
-                    {{ related_faq.category }}
-                  </div>
-                </div>
-              </a>
-            {% endif %}
-          {% endfor %}
-        </div>
-    </section>
+  <div class="container is-max-desktop">
     
+    <nav class="breadcrumb has-bullet-separator mb-5">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/faqs/">FAQ</a></li>
+        <li class="is-active"><a href="#">{{ page.category }}</a></li>
+      </ul>
+    </nav>
 
+    <div class="content-wrapper">
+      <h1 class="title is-1 mb-6">{{ page.question }}</h1>
+
+      <div class="notification is-light" style="border-left: 5px solid #d4af37; background-color: #fff9e6;">
+        <h4 class="subtitle is-6 is-uppercase has-text-weight-bold mb-2" style="letter-spacing: 1px; color: #8a6d1c;">
+          The Short Answer
+        </h4>
+        <p class="is-size-4 has-text-weight-medium" style="line-height: 1.4;">
+          {{ page.quick_answer }}
+        </p>
+      </div>
+
+      <div class="content is-medium mt-6">
+        <h3 class="title is-4">Deep Dive</h3>
+        {{ content }}
+      </div>
+    </div>
+
+    <hr class="mt-6">
+    <div class="level">
+      <div class="level-left">
+        <a href="/faq/" class="button is-text">← Back to all questions</a>
+      </div>
+      <div class="level-right">
+        <span class="tag is-dark">{{ page.category }}</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<nav class="breadcrumb" aria-label="breadcrumbs">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/faqs/">FAQs</a></li>
-      <li class="is-active"><a href="#" aria-current="page">{{ page.title }}</a></li>
-    </ul>
-  </nav>
-
-{% assign combined_answer = "" %}
-
-<!-- If quick answer exists, append it to the combined answer -->
-{% if page.quick_answer %}
-  {% assign combined_answer = "<p>" | append: page.quick_answer | append: "</p>" %}
-{% endif %}
-
-<!-- Append the full content to the combined answer -->
-{% assign combined_answer = combined_answer | append: " " | append: content | strip_newlines %}
 <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "{{ page.title }}",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": {{ combined_answer | jsonify }}
-          }
-        }
-      ]
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": {
+    "@type": "Question",
+    "name": "{{ page.question }}",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "{{ page.short_answer | escape }}"
     }
-    </script>
-    
+  }
+}
+</script>

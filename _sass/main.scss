@@ -1,333 +1,177 @@
 @charset "utf-8";
 
-// Import fonts
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Fira+Mono:wght@400;500&display=swap');
+// 1. IMPORT FONTS
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Fira+Mono:wght@400;500&family=Permanent+Marker&family=Inter:wght@400;600&display=swap');
 
-// Font Faces
-@font-face {
-  font-family: 'Fira Mono';
-  src: url('/assets/fonts/Fira_Mono.woff2') format('woff2 supports variations'),
-       url('/assets/fonts/Fira_Mono.woff2') format('woff2-variations');
-  font-weight: 400 500;
-  font-display: swap;
-  font-style: normal;
-}
+// 2. VARIABLES - Whiskey Theme
+$orange: #D2691E;      /* Whiskey amber tone */
+$brown: #8B4513;       /* Classic wood/whiskey tone */
+$dark-brown: #3d261c;  /* Rich, dark espresso/charcoal */
+$cream: #f8f4e3;       /* Paper/Cream background */
+$gold: #c19a6b;        /* Brass/Golden hue */
+$white: #ffffff;
 
-@font-face {
-  font-family: 'Libre Baskerville';
-  src: url('https://fonts.gstatic.com/s/librebaskerville/v11/kmKnZrc3Hgbbcjq75U4uslyuy4kn0qM.woff2') format('woff2');
-  font-display: swap;
-}
-
-// Variables - Updated for Whiskey Theme
-$orange: #D2691E; /* Whiskey amber tone */
-$brown: #8B4513; /* Classic whiskey tone */
-$dark-brown: #5B3826; /* Rich, dark brown */
-$cream: #f8f4e3; /* Soft cream background */
-$black: #141414; /* Standard black */
-$white: #ffffff; /* White */
-$gold: #c19a6b; /* Whiskey golden hue */
-
+// Bulma Variable Overrides
 $family-serif: "Libre Baskerville", serif;
+$family-sans-serif: "Inter", sans-serif;
 $family-monospace: "Fira Mono", monospace;
+$family-handwritten: "Permanent Marker", cursive;
 
 $primary: $orange;
-$secondary: $brown;
+$link: $brown;
+$info: $gold;
+$dark: $dark-brown;
 $text: $dark-brown;
 $background: $cream;
-$card-bg: #fbf7f2; /* Softer cream for cards */
 
+// 3. BULMA IMPORTS
+// We must import initial variables before our custom logic
 @import "./utilities/initial-variables.sass";
 
-// Import only what you need from Bulma
-@import "./utilities/animations.sass";
-@import "./utilities/controls.sass";
-@import "./utilities/extends.sass";
-@import "./utilities/mixins.sass";
+// Add specific overrides for Bulma components here
+$navbar-background-color: $dark-brown;
+$navbar-item-color: $white;
+$navbar-item-hover-background-color: $orange;
+$card-background-color: #fbf7f2;
+
+@import "./utilities/_all.sass";
 @import "./base/_all.sass";
-@import "./components/_all.sass";
 @import "./elements/_all.sass";
-@import "./form/_all.sass";
+@import "./components/_all.sass";
 @import "./grid/_all.sass";
-@import "./helpers/_all.sass";
 @import "./layout/_all.sass";
 
-// Navbar Styles
-.navbar {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: $secondary;
-  padding: 1.5rem 2rem;
-  color: $white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 10;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+// 4. CUSTOM WHISKEY.GLASS STYLES
+
+// Shared Elegant Typography
+h1, h2, .title {
+    font-family: $family-serif;
+    font-weight: 700;
 }
 
-.brand {
-  font-size: 2.5rem;
-  font-family: $family-monospace;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: $white;
+// Brand Header (Monospace)
+.navbar-brand .navbar-item {
+    font-family: $family-monospace;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
+// Custom Gold Border for Spec Sheets
+.is-gold-border {
+    border-left: 4px solid $gold;
 }
 
-.nav-links a {
-  color: $white;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.nav-links a:hover {
-  background-color: $primary;
-  color: $white;
-}
-
-// Wave Effect
-.nav-wave {
-  position: absolute;
-  bottom: -75px;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: url('/assets/images/wave.svg') repeat-x;
-  background-size: contain;
-  transform: scale(1.25, .5);
-  z-index: 9;
-}
-
-// Hero Section
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: url('/assets/images/whiskey-glass.jpg') no-repeat center center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 3rem;
-  text-align: center;
-  color: $white;
-}
-
-.hero-overlay h1 {
-  font-size: 4rem;
-  font-family: $family-monospace;
-  margin-bottom: 1.5rem;
-}
-
-// Button Styles
-.btn {
-  background-color: $secondary;
-  color: $white;
-  padding: 0.8rem 2rem;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: $primary;
-}
-
-// Content Section
-.content {
-  padding: 4rem 2rem;
-  text-align: center;
-  background-color: $background;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-h2 {
-  font-size: 2.5rem;
-  color: $text;
-  margin-bottom: 1.5rem;
-}
-
-p {
-  font-size: 1.2rem;
-  color: $text;
-}
-
-// Footer Styles
-footer {
-  background-color: $secondary;
-  color: $white;
-  padding: 2rem 0;
-  text-align: center;
-}
-
-// Media Queries
-@media (max-width: 1024px) {
-  .navbar {
-    padding: 1rem;
-  }
-
-  .nav-links {
-    gap: 1rem;
-  }
-
-  .hero-overlay h1 {
-    font-size: 3rem;
-  }
-
-  .btn {
-    padding: 0.6rem 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .hero-overlay h1 {
-    font-size: 2.5rem;
-  }
-
-  .btn {
-    padding: 0.5rem 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .brand {
-    font-size: 1.8rem;
-  }
-
-  .hero-overlay h1 {
-    font-size: 2rem;
-  }
-
-  .btn {
-    padding: 0.4rem 1rem;
-  }
-
-  .content {
-    padding: 2rem 1rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-}
-
-/* FAQ Section */
+// FAQ Napkin Style
 .faq-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    padding: 2rem 0;
 }
 
-/* Napkin Style FAQ Cards */
 .faq-napkin {
-  background-color: #f8f8f2; /* Soft napkin-like color */
-  border: 1px solid #e0e0e0;
-  padding: 1.5rem;
-  width: 100%;
-  max-width: 300px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-  background-size: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fffef2;
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 2rem;
+    min-height: 250px;
+    box-shadow: 3px 3px 15px rgba(0,0,0,0.07);
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // The "Handwritten" feel
+    .faq-title {
+        font-family: $family-handwritten;
+        font-size: 1.5rem;
+        line-height: 1.2;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+    }
+
+    .faq-category {
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+        font-family: $family-handwritten;
+        color: $orange;
+        font-size: 0.8rem;
+        opacity: 0.7;
+    }
+
+    &:hover {
+        transform: scale(1.03) rotate(0deg) !important;
+        box-shadow: 10px 10px 25px rgba(0,0,0,0.1);
+        z-index: 5;
+    }
 }
 
-/* Apply Different Rotations Based on nth-child */
-.faq-cards > :nth-child(1) .faq-napkin {
-  transform: rotate(-3deg);
+// Random rotations for the "scattered napkins" look
+.faq-cards > :nth-child(odd) .faq-napkin { transform: rotate(-2deg); }
+.faq-cards > :nth-child(even) .faq-napkin { transform: rotate(1.5deg); }
+.faq-cards > :nth-child(3n) .faq-napkin { transform: rotate(2.5deg); }
+
+// 5. COMPONENT ENHANCEMENTS
+
+// Reviews Card
+.card {
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    
+    &:hover {
+        transform: translateY(-8px);
+    }
 }
 
-.faq-cards > :nth-child(2) .faq-napkin {
-  transform: rotate(2deg);
+// Featured Short Answer (FAQ Single Page)
+// Fixed the syntax error here
+.notification.is-light {
+    background-color: lighten($gold, 35%);
+    border-radius: 0;
+    box-shadow: inset 5px 0 0 $gold;
+    padding: 1.5rem; /* Added padding to ensure it's not an empty block */
 }
 
-.faq-cards > :nth-child(3) .faq-napkin {
-  transform: rotate(-1.5deg);
+// Footer
+footer.footer {
+    background-color: $dark-brown;
+    color: $cream;
+    padding: 4rem 1rem;
+    
+    strong, p {
+        color: $white;
+    }
 }
 
-.faq-cards > :nth-child(4) .faq-napkin {
-  transform: rotate(3deg);
+// Responsive Tweaks
+@include mobile {
+    .faq-napkin {
+        transform: none !important;
+    }
+    .title.is-1 {
+        font-size: 2.5rem;
+    }
 }
 
-.faq-cards > :nth-child(5) .faq-napkin {
-  transform: rotate(-2.5deg);
+/* Articles Hub Custom Styles */
+.tag.is-gold {
+    background-color: $gold;
+    color: $white;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
-.faq-cards > :nth-child(6) .faq-napkin {
-  transform: rotate(1.5deg);
+.card-image img {
+    transition: filter 0.3s ease;
 }
 
-.faq-cards > :nth-child(7) .faq-napkin {
-  transform: rotate(-3deg);
+.card:hover .card-image img {
+    filter: brightness(0.9);
 }
 
-.faq-cards > :nth-child(8) .faq-napkin {
-  transform: rotate(2.5deg);
-}
-
-.faq-cards > :nth-child(9) .faq-napkin {
-  transform: rotate(-1deg);
-}
-
-/* Hover Effect for FAQ Napkin */
-.faq-cards .faq-napkin:hover {
-  transform: scale(1.05) rotate(0); /* Straighten and slightly enlarge on hover */
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* FAQ Title on Napkin */
-.faq-title {
-  font-family: 'Permanent Marker', cursive; /* Handwritten style font */
-  font-size: 1.6rem;
-  color: #333;
-  text-align: center;
-  padding: 0.5rem;
-}
-
-/* Category Label Styling */
-.faq-category {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  color: #8B4513;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  border-radius: 5px;
-  z-index: 2;
-  font-family: "Permanent Marker", cursive;
+.is-flex-direction-column {
+    background: linear-gradient(135deg, $dark-brown 0%, #000000 100%);
 }

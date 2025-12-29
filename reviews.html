@@ -1,0 +1,43 @@
+---
+layout: default
+title: Whiskey Reviews
+permalink: /reviews/
+---
+<section class="hero is-dark is-small">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-1">The Tasting Room</h1>
+      <p class="subtitle">In-depth reviews and ratings of the world's finest spirits.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      {% for review in site.reviews %}
+      <div class="column is-4">
+        <div class="card" style="border-radius: 8px; overflow: hidden; height: 100%;">
+          <div class="card-image">
+            <figure class="image is-3by4">
+              <a href="{{ review.url }}">
+                <img src="{{ review.image }}" alt="{{ review.title }}" style="object-fit: cover;">
+              </a>
+            </figure>
+          </div>
+          <div class="card-content has-text-centered">
+            <p class="heading has-text-gold mb-1">{{ review.distillery }}</p>
+            <p class="title is-4 mb-3">
+              <a href="{{ review.url }}" class="has-text-dark">{{ review.title }}</a>
+            </p>
+            <div class="tags is-centered">
+              <span class="tag is-black">{{ review.rating }} / 5 ⭐</span>
+              <span class="tag is-light">{{ review.price_point }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

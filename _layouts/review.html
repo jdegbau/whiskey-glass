@@ -1,0 +1,69 @@
+---
+layout: default
+---
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        
+        <div class="has-text-centered mb-6">
+          <h1 class="title is-1">{{ page.title }}</h1>
+          <p class="subtitle is-4 is-italic has-text-grey">{{ page.distillery }} &bull; {{ page.region }}</p>
+          <div class="tags is-centered">
+            {% for tag in page.tags %}
+            <span class="tag is-dark">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <figure class="image is-3by2 mb-6">
+          <img src="{{ page.image }}" alt="{{ page.title }}" style="object-fit: cover; border-radius: 8px;">
+        </figure>
+
+        <div class="columns">
+          <div class="column is-4">
+            <div class="box is-shadowless is-gold-border">
+              <h3 class="heading has-text-weight-bold">The Specs</h3>
+              <p class="mb-2"><strong>ABV:</strong> {{ page.abv }}</p>
+              <p class="mb-2"><strong>Price:</strong> {{ page.price_point }}</p>
+              <p class="mb-4"><strong>Rating:</strong> <span class="has-text-gold">{{ page.rating }} / 5</span></p>
+              <hr>
+              <p class="is-size-7 has-text-grey">Please drink responsibly.</p>
+            </div>
+          </div>
+
+          <div class="column is-8">
+            <div class="content is-medium">
+              {{ content }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "Product",
+    "name": "{{ page.title }}",
+    "brand": {
+      "@type": "Brand",
+      "name": "{{ page.distillery }}"
+    }
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": "{{ page.rating }}",
+    "bestRating": "5"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Whiskey.Glass"
+  }
+}
+</script>
